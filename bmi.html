@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p style="font-size: large;background-color: rgb(235, 235, 196);text-align: center;"> your weight = <span id="weight"></span></p>
+    <p style="font-size: large;background-color: rgb(235, 235, 196);text-align: center;">your height = <span id="height"></span></p>
+    <p style="font-size: large;background-color: rgb(205, 205, 191);color: rgb(117, 108, 108);text-align: center;">your bmi = <span id="bmi"></span></p>
+    <script>
+      var weight = Number(prompt("please enter your weight:"));
+      var height = Number(prompt("please enter your height:"));
+      var bmi = weight / height ** 2;
+      document.getElementById('weight').innerHTML=weight;
+      document.getElementById('height').innerHTML=height;
+      document.getElementById('bmi').innerHTML=bmi;
+      document.getElementById('bmi').style.color ="blue";
+      if(bmi<18.5){
+        console.log("Lightweight");
+      } else if(bmi>=18.5 && bmi<24.9){
+        console.log("Normal weight");
+      } else if(bmi<=25 && bmi<=29.9){
+        console.log("Overweight");
+      } else if(bmi>=30){
+        console.log("obesity");
+      }
+      
+    </script>
+  </body>
+</html>

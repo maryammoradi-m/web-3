@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger">
+                    <h1 id="title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+
+        function getSingleDataFromServer(id) {
+            $.get(`https://jsonplaceholder.typicode.com/todos${id}`, function (data) {
+
+                $('#title').html(data.title);
+            })
+        }
+
+        function get(name) {
+            var url = window.location.search;
+            var num = url.search(name);
+            var namel = name.length;
+            var frontlength = namel + num + 1; //length of everything before the value 
+            var front = url.substring(0, frontlength);
+            url = url.replace(front, "");
+            num = url.search("&");
+
+            if (num >= 0) return url.substr(0, num);
+            if (num < 0) return url;
+        }
+
+        let id = get('id');
+        getSingleDataFromServer(id);
+    </script>
+</body>
+
+</html>

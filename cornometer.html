@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        /* direction: rtl; */
+        background: linear-gradient(
+          90deg,
+          rgb(104, 98, 139) 23%,
+          rgb(199, 145, 169) 100%
+        );
+        font-family: "Times New Roman", Times, serif;
+        color: #080808;
+      }
+      .cc {
+        max-width: 85em;
+        min-width: 320px;
+        margin: 0 auto;
+        padding: 0 0.5em;
+        position: relative;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+        line-height: 2.5em;
+        font-size: xx-large;
+        color: rgb(3, 3, 61);
+        border: 3px solid #4f0e7a;
+        border-radius: 10px;
+        background-color: rgba(250, 235, 215, 0.37);
+        width: 60%;
+        height: 80px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .box {
+        margin: 0 auto;
+        width: 60%;
+        text-align: center;
+        border: 3px solid #4f0e7a;
+        border-radius: 10px;
+        padding: 3em;
+      }
+      button {
+        background: #834171;
+        border: 2px solid #f7f7f8;
+        color: #fff;
+        padding: 1em 2em;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+      }
+      button:hover {
+        color: #340454;
+        background: #f0afe6;
+      }
+      #time {
+        margin-bottom: 1em;
+        font-size: 2em;
+      }
+      table,
+      th,
+      tr {
+        border: 2px solid #4f0e7a;
+        text-align: center;
+        align-items: center;
+        border-radius: 5px;
+        margin: 0 auto;
+        font-size: xx-large;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>کرنومتر</h1>
+    <br /><br />
+    <div class="cc">
+      <div class="box">
+        <div id="time">
+          <span id="minutes">00</span>
+          :
+          <span id="seconds">00</span>
+          :
+          <span id="milisecond">000</span>
+        </div>
+        <button onclick="start()">شروع</button>
+        <button onclick="stop()">توقف</button>
+        <button onclick="reset()">شروع مجدد</button>
+        <button onclick="save()">ذخیره</button>
+      </div>
+      <div>
+        <br><br>
+        <table>
+          <tr>
+            <th>minutes</th>
+            <th>seconds</th>
+            <th>milisecond</th>
+          </tr>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      var cornoTime = 0;
+      var cornoInterval = null;
+      var seconds = 0;
+      var milisecond = 0;
+      var minutes = 0;
+
+      function start() {
+        cornoInterval = setInterval(function () {
+          cornoTime += 100;
+          if (cornoTime >= 1000) {
+            seconds++;
+            cornoTime = 0;
+          }
+          if (seconds >= 60) {
+            minutes += 1;
+            seconds = 0;
+          }
+          document.getElementById("milisecond").innerHTML = cornoTime;
+          document.getElementById("seconds").innerHTML = seconds;
+          document.getElementById("minutes").innerHTML =
+            m < 10 ? `0${minutes}` : minutes;
+        }, 1);
+      }
+      function stop() {
+        clearInterval(cornoInterval);
+      }
+      function reset() {
+        clearInterval(cornoInterval);
+        minutes = 0;
+        seconds = 0;
+        milisecond = 0;
+        document.getElementById("milisecond").innerHTML = "000";
+        document.getElementById("seconds").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        saveArrey = [];
+        showInTable();
+      }
+      function save() {
+        var cTime = {
+          milisecond,
+          seconds,
+          minutes,
+        };
+        saveArrey.push(cTime);
+        showInTable();
+      }
+      function showInTable() {
+        let tbody = document.getElementById("tbody");
+        tbody.innerHTML = "";
+        saveArrey.forEach(function (item) {
+          console.log(item);
+          tbody.innerHTML += `
+              <tr><td>${item.minutes}</td>
+              <td>${item.seconds}</td>
+              <td>${item.milisecond}</td></tr>`;
+        });
+      }
+    </script>
+  </body>
+</html>

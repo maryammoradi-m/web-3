@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .image {
+      width: 50%;
+      margin: 50px auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .image img {
+      width: 100%;
+      display: block;
+    }
+
+    .text {
+      position: absolute;
+      top: 130px;
+      left: 170px;
+
+    }
+
+    .text p {
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: rgb(96, 79, 80);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="image">
+    <img src="assest/image/hello.png" />
+    <div class="text">
+      <p id="demo"></p>
+    </div>
+  </div>
+
+  <script>
+    var name = prompt("pleas enter your name :");
+    const d = new Date();
+    let hour = d.getHours();
+    if (hour >= 0 && hour < 10) {
+      document.getElementById("demo").innerHTML =
+        "hi" + " " + name + "<br>" + "Good morining";
+    } else if (hour >= 10 && hour <= 15) {
+      document.getElementById("demo").innerHTML =
+        "hi" + " " + name + "<br>" + "Good afternoon";
+    } else if (hour > 15 && hour <= 18) {
+      document.getElementById("demo").innerHTML =
+        "hi" + " " + name + "<br>" + "Good evening";
+    } else if (hour > 18 && hour <= 24) {
+      document.getElementById("demo").innerHTML =
+        "hi" + " " + name + "<br>" + "Good Night";
+    } else {
+      console.log("not a valid time");
+    }
+  </script>
+</body>
+
+</html>

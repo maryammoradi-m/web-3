@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .card {
+            height: 220px;
+            margin: 10px;
+            background-color: rgb(192, 209, 250);
+            border: 2px solid rgb(52, 49, 49);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        a {
+            color: rgb(6, 6, 214);
+            font-weight: bold;
+            justify-content: end;
+        }
+
+        h1 {
+            font-size: 25px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="todoes">
+
+        </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        let id = 0;
+        $('#next').click(function () {
+            if (id > 200) return;
+            id++;
+            getDataFromServer()
+        })
+        $('#prev').click(function () {
+            if (id == 1) return;
+            id--;
+            getDataFromServer()
+        })
+
+
+        function getAllDataFromServer() {
+            $.get(`https://jsonplaceholder.typicode.com/todos/`, function (data) {
+                $('#todoes').html('');
+                data.forEach(function (item) {
+                    $('#todoes').append(`
+                    <div class="col-12 col-md-6 col-lg-4">
+                       <div class="card">
+                            <div class="card-body">
+                                <span class="badge bg-info"> ${item.id}</span>
+                                 <h1>${item.title}</h1>
+                                 <a href="single.html?id=${item.id}">show more</a>
+                            </div>
+                        </div>
+                    </div>`)
+                })
+            });
+        }
+        getAllDataFromServer()
+    </script>
+</body>
+
+</html>

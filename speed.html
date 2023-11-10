@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>your speed = <span id="speed"></span></p>
+    
+
+    <script>
+      let speed = Number(prompt("enter your speed"));
+      document.getElementById("speed").innerHTML= speed;
+     
+
+      if (speed <= 120 && speed > 70) {
+        console.log("Your speed is allowed");
+      } else if (speed > 120 && speed <= 70) {
+        console.log("Your speed is not allowed");
+      }
+    </script>
+  </body>
+</html>

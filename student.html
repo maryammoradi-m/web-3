@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Student {
+      constructor(
+        fname,
+        lname,
+        age,
+        riyazi,
+        fizic,
+        shimi,
+        adabiyatFarsi,
+        english,
+        varzesh,
+        dini
+      ) {
+        this.fname = fname;
+        this.lname = lname;
+        this.age = age;
+        this.riyazi = riyazi;
+        this.fizic = fizic;
+        this.shimi = shimi;
+        this.adabiyatFarsi = adabiyatFarsi;
+        this.english = english;
+        this.varzesh = varzesh;
+        this.dini = dini;
+      }
+      info() {
+        console.log(
+          `fname = ${this.fname}
+lname = ${this.lname}
+age = ${this.age}
+riyazi = ${this.riyazi}
+fizic = ${this.fizic}  
+shimi = ${this.shimi}  
+adabiyatFarsi = ${this.adabiyatFarsi}
+english = ${this.english}
+varzesh = ${this.varzesh}
+dini = ${this.dini} `
+        );
+      }
+
+      moadel() {
+        return (
+          (this.riyazi +
+            this.fizic +
+            this.shimi +
+            this.adabiyatFarsi +
+            this.english +
+            this.varzesh +
+            this.dini) /
+          7
+        );
+      }
+    }
+    let std1 = new Student(
+      "sara",
+      "karimi",
+      12,
+      16,
+      17,
+      19,
+      19,
+      16,
+      18,
+      16
+    );
+    std1.info();
+    console.log(std1);
+    console.log(std1.moadel());
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body onKeydown="myFn(event)">
+    <div
+      id="test"
+      style="
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        background-color: blue;
+        top: 10px;
+        bottom: 0%;
+        z-index: 1;
+      "
+    ></div>
+    <div
+      id="test"
+      style="
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        background-color: rgb(241, 241, 247);
+        border: 1px solid black;
+        top: 50px;
+        left: 300px;
+      "
+    ></div>
+
+    <script>
+      let left1 = 0;
+      let top1 = 0;
+      const myFn = function (e) {
+        console.log(e.code);
+        let element = document.getElementById("test");
+        if (e.code == "ArrowRight") {
+          left1 += 1;
+          element.style.left = `${left1}px`;
+        }
+         else if (e.code == "ArrowLeft") {
+          left1 -= 1;
+          element.style.left = `${left1}px`;
+        }
+        else if (e.code == "ArrowDown") {
+          top1 += 1;
+          element.style.top = `${top1}px`;
+        }
+        else if (e.code == "ArrowUp") {
+          top1 -= 1;
+          element.style.top = `${top1}px`;
+        }
+      };
+    </script>
+  </body>
+</html>

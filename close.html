@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      box-sizing: border-box;
+      padding: 16px;
+      width: 100%;
+      background-color: rgb(120, 36, 95);
+      color: #fff;
+      font-size: 30px;
+    }
+    .closebtn {
+      float: right;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .closebtn:hover {
+      color: #000;
+    }
+  </style>
+
+  <body>
+    <div>
+      <span onclick="this.parentNode.style.display='none';" class="closebtn">X</span>
+      <p style="text-align: center;">click X to close.</p>
+    </div>
+  </body>
+</html>

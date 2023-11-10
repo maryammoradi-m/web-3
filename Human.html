@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Human {
+      constructor(fname, lname, weight, height, birthDate) {
+        this.fname = fname;
+        this.lname = lname;
+        this.weight = weight;
+        this.height = height;
+        this.birthDate = birthDate;
+      }
+      info() {
+        console.log(
+          `fname = ${this.fname} -- lname = ${this.lname} -- weight = ${this.weight} -- height = ${this.height} -- birthDate = ${this.birthDate}`
+        );
+      }
+      calcBmi() {
+        return this.weight / this.height ** 2;
+      }
+      calcAge() {
+        const d = new Date();
+        let year = d.getFullYear();
+        return year - this.birthDate;
+      }
+    }
+    let person1 = new Human("sara", "karimi", 67, 1.7, 1993);
+    person1.info();
+    console.log(person1);
+    console.log(person1.calcBmi());
+    console.log(person1.calcAge());
+    let person2 = new Human("ali", "farahani", 82, 1.8, 1989);
+    person2.info();
+    console.log(person2);
+    console.log(person2.calcBmi());
+    console.log(person2.calcAge());
+    let person3 = new Human("hana", "amini", 76, 1.5, 1897);
+    person3.info();
+    console.log(person3);
+    console.log(person3.calcBmi());
+    console.log(person3.calcAge());
+  </script>
+</body>
+
+</html>

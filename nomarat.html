@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <p>your Score = <span id="score"></span></p>
+  <script>
+    var nomre = Number(prompt("enter your Score"));
+    document.getElementById("score").innerHTML = nomre;
+
+    if (nomre >= 15 && nomre <= 20) {
+      console.log("Excellent");
+    } else if (nomre < 15 && nomre >= 10) {
+      console.log("bad");
+    } else if (nomre < 10) {
+      console.log("very bad");
+    }
+  </script>
+</body>
+
+</html>

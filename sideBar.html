@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="assest/css/ionicons.css" />
+  <link rel="stylesheet" href="assest/css/Roboto.css" />
+  <link rel="stylesheet" href="assest/css/style.css" />
+</head>
+
+<body>
+  <main id="content">
+    <button id="showAside" onclick="showAside()">
+      <i class="ion-navicon-round"></i>
+    </button>
+    <aside id="aside">
+      <div class="top">
+        <button id="close" onclick="hideAside()">
+          <i class="ion-close"></i>
+        </button>
+        <img src="assest/image/back.jpg" alt="background" />
+        <div class="overlay">
+          <div class="avatar">
+            <img src="assest/image/avatar.jpg" alt="avatar" />
+          </div>
+          <div class="intro">
+            <h1>Maryam Moradi</h1>
+            <h4>moradiii.maryam92@gmail.com</h4>
+          </div>
+          <div class="social">
+            <a href="mailto:moradiii.maryam92@gmail.com"><i class="ion-social-google"></i></a>
+            <a href="https://ir.linkedin.com"><i class="ion-social-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <ul class="sidenav">
+        <li class="sidenav-item"><i class="ion-ios-home"></i> Home</li>
+        <li class="sidenav-item"><i class="ion-android-person"></i> About</li>
+        <li class="sidenav-item"><i class="ion-clipboard"></i>Resum</li>
+        <li class="sidenav-item"><i class="ion-gear-b"></i>Services</li>
+        <li class="sidenav-item"><i class="ion-briefcase"></i>Portfolio</li>
+        <li class="sidenav-item"><i class="ion-filing"></i>Pricing</li>
+        <li class="sidenav-item"><i class="ion-ios-paper"></i>Blog</li>
+        <li class="sidenav-item"><i class="ion-android-call"></i>Conttact</li>
+      </ul>
+    </aside>
+    <section id="mainContent" onclick="closeAside()"></section>
+  </main>
+
+  <script>
+    function showAside() {
+      document.getElementById("aside").style.left = "0";
+      document.getElementById("aside").style.transition = "0.5s";
+    }
+    function hideAside() {
+      document.getElementById("aside").style.left = "-300px";
+      document.getElementById("aside").style.transition = "0.5s";
+    }
+    function closeAside() {
+      if (document.getElementById("aside").style.left == "0px") {
+        document.getElementById("aside").style.left = "-300px";
+        document.getElementById("aside").style.transition = "0.5s";
+      }
+    }
+  </script>
+</body>
+
+</html>
